@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <style> 
+            #mymap{
+                width:1000px;
+                height:500px;
+            }
+            .leaflet-popup-content{color:brown;}
+            /*
+            48.8529,17.1260
+            49.0099,17.1225
+            48.9169,17.0900
+            48.9734,17.2669
+            48.9010,17.3168
+            */
+        </style>
+    </head>    
+    <body>
+        <div id="mymap"></div>¨
+        <script>
+            var map= L.map('mymap');
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+            map.setView([49.009952, 16.86264],10); 
+            var mkr= L.marker([48.8529,17.1260]);
+            mkr.addTo(map); 
+            mkr.bindPopup('Hodonín');
+            var mkr= L.marker([49.0099,17.1225]);
+            mkr.addTo(map); 
+            mkr.bindPopup('Kyjov');
+            var mkr= L.marker([48.9169,17.0900]);
+            mkr.addTo(map); 
+            mkr.bindPopup('Dubňany');
+            var mkr= L.marker([48.9734,17.2669]);
+            mkr.addTo(map); 
+            mkr.bindPopup('Bzenec');
+            var mkr= L.marker([48.9010,17.3168]);
+            mkr.addTo(map); 
+            mkr.bindPopup('Strážnice');
+            function onMapClick(e){alert(e.latlng);}
+            map.on('click', onMapClick);
+         
+            L.polygon([[49.0099,17.1225], [48.9734,17.2669], [48.9010,17.3168], [48.8529,17.1260], [48.9169,17.0900],]).addTo(map);
+            
+        
+</script>
+    </body>
+</html>
